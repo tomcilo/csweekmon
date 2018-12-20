@@ -16,6 +16,7 @@ CAN_DISABLE = True
 
 def perform(user, other):
     """Perform Sing."""
+    other.stats['Recent damage'] = 0
     try:
         Printer.print_ui('  ♪ The sound of {} singing fills the area. ♫'.format(user.name))
     except UnicodeEncodeError:

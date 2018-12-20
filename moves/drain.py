@@ -14,6 +14,7 @@ CAN_DISABLE = True
 
 def perform(user, other):
     """Perform Drain."""
+    other.stats['Recent damage'] = 0
     if random.randint(0, 99) < SUCCESS_RATE:
         if random.randint(0, 99) < CRIT_RATE:
             Printer.print_ui('  It\'s super effective!')

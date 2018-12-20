@@ -15,6 +15,7 @@ CAN_DISABLE = True
 
 def perform(user, other):
     """Perform Disable."""
+    other.stats['Recent damage'] = 0
     if random.randint(0, 99 - user.stats['Special']) > SUCCESS_RATE or \
             'Disable' in other.stats['Effects']:
         Printer.print_ui('  It\'s ineffective!')
