@@ -32,4 +32,5 @@ def perform(user, other):
         other.stats['Recent damage'] = damage
         other.stats['HP'] -= damage
     else:
+        other.stats['Recent damage'] = 0
         Printer.print_ui('  It\'s ineffective!')

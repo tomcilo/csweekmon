@@ -9,8 +9,9 @@ NAME = 'Harden'
 PP_COST = 5
 CAN_DISABLE = True
 
-def perform(user, _):
+def perform(user, other):
     """Perform Harden."""
     increase = random.randint(2, 3 + int(0.1 * user.stats['Special'] * user.stats['Defense']))
+    other.stats['Recent damage'] = 0
     user.stats['Base Defense'] += increase
     Printer.print_ui('  {} increases its Defense by {}.'.format(user.name, increase))

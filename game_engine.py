@@ -225,6 +225,7 @@ def run_battle(agent_fst_a, agent_snd_a, agent_fst_b, agent_snd_b):
                         else:
                             break
         elif action == Action.USE_ITEM:   # use item
+            agent_oth.stats['Recent damage'] = 0
             if detail < 0 or detail >= MAX_ITEMS:
                 Printer.print_ui('  {} tries to use an item, but stumbles!'.format(agent_cur.name))
             else:
@@ -241,6 +242,7 @@ def run_battle(agent_fst_a, agent_snd_a, agent_fst_b, agent_snd_b):
                     item.use(agent_cur, agent_oth)
                     agent_cur.stats['Items'][detail] = -1
         elif action == Action.BLOCK:   # block
+            agent_oth.stats['Recent damage'] = 0
             Printer.print_ui('  {} blocks.'.format(agent_cur.name))
             # temporary increase in Defense
             agent_cur.stats['Defense'] += randint(8, 12)
